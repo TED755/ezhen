@@ -17,3 +17,7 @@ class EzhAction():
         self.wait_next = kwargs.get('wait_next')
         self.ext_commands = kwargs.get('ext')
         self.answer = kwargs.get('answer')
+
+    def __str__(self):
+        return (f"{self.act_id} {self.wait_next} "
+                f"{self.ext_commands} {self.answer}")

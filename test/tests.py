@@ -8,5 +8,5 @@ class EzhenTests(unittest.TestCase):
         print(res)
 
     def test_def_action(self):
-        res = EzhenCore().def_action(['эжень,', 'эжень'])
+        res = EzhenCore().def_action(['посоветуй'])
         print(res)

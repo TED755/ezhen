@@ -46,7 +46,10 @@ class EzhenCore():
             if ext_comm_info:
                 ...
             else:
-                return None
+                return EzhAction(
+                    action=action_id,
+                    answer='Что тебе порекомендовать?'
+                    )
         else:
             return EzhAction(action=action_id,
                              answer=action_settings['answer'])
