@@ -1,3 +1,12 @@
 {
-    "recommend": "recommend"
+    "recommend": {
+        "action_id": "recommend",
+        "need_ext": true,
+        "answer": "Зацени {}"
+    },
+    "me": {
+        "action_id": "me",
+        "need_ext": false,
+        "answer": "Одного упоминания достаточно. Повтори запрос и не пингуй меня почем зря"
+    }
 }

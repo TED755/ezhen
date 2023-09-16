@@ -16,6 +16,14 @@ def start_life():
 
         if not ezhen.is_me(message_words[0]):
             return
-        ezhen_bot.send_message(chat_id, f"вы написали {message.text}")
+
+        try:
+            action = ezhen.def_action(message_words[1:])
+        except IndexError:
+            ezhen_bot.send_message(chat_id, 'Что?')
+            return
+        answer = ezhen.do_action(action)
+
+        ezhen_bot.send_message(chat_id, answer)
 
     ezhen_bot.infinity_polling(none_stop=True, interval=1)
