@@ -14,6 +14,9 @@ def start_life():
         message_words = message.text.split(' ')
         # print(user_id, chat_id)
 
+        if user_id == chat_id:  # Ведется личная переписка с ботом
+            ...
+
         if not ezhen.is_me(message_words[0]):
             return
 
@@ -24,6 +27,6 @@ def start_life():
             return
         answer = ezhen.do_action(action)
 
-        ezhen_bot.send_message(chat_id, answer)
+        ezhen_bot.send_message(chat_id, answer.answer)
 
     ezhen_bot.infinity_polling(none_stop=True, interval=1)

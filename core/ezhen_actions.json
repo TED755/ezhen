@@ -8,5 +8,9 @@
         "action_id": "me",
         "need_ext": false,
         "answer": "Одного упоминания достаточно. Повтори запрос и не пингуй меня почем зря"
+    },
+    "describe": {
+        "action_id": "describe",
+        "answer": "В разработке :)"
     }
 }

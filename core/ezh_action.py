@@ -1,7 +1,7 @@
 class EzhAction():
     def __init__(self, *args, **kwargs):
         '''
-            action: str
+            action_id: str
             wait_next: bool
             ext: str
             answer: str
@@ -10,14 +10,14 @@ class EzhAction():
         if args:
             self.act_id,
             self.wait_next,
-            self.ext_commands,
+            self.ext,
             self.answer = args
 
-        self.act_id = kwargs.get('action')
-        self.wait_next = kwargs.get('wait_next')
-        self.ext_commands = kwargs.get('ext')
-        self.answer = kwargs.get('answer')
+        self.act_id: str = kwargs.get('action_id')
+        self.wait_next: bool = kwargs.get('wait_next')
+        self.ext: str = kwargs.get('ext')
+        self.answer: str = kwargs.get('answer')
 
     def __str__(self):
         return (f"{self.act_id} {self.wait_next} "
-                f"{self.ext_commands} {self.answer}")
+                f"{self.ext} {self.answer}")

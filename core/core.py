@@ -1,8 +1,8 @@
-# import telebot
 import json
 from core.ezhen_settings import EZHEN_TOKEN
 from core.ezh_except import EzhException
 from core.ezh_action import EzhAction
+from core.ezh_do_actions import EzhDoActions
 
 
 class EzhenCore():
@@ -26,6 +26,7 @@ class EzhenCore():
     def def_action(self, messages: list) -> EzhAction:
         find_action = messages[0]
         action_id = ''
+        # TODO: Убрать дублирующий код в отдельный метод
         for voc in self.vocabluary.keys():
             if find_action.lower() in self.vocabluary[voc]:
                 action_id = voc
@@ -44,7 +45,12 @@ class EzhenCore():
 
         if action_settings['need_ext']:
             if ext_comm_info:
-                ...
+                rec_object = ext_comm_info[0]
+                # TODO: Убрать дублирующий код в отдельный метод
+                for voc in self.vocabluary.keys():
+                    if rec_object.lower() in self.vocabluary[voc]:
+                        rec_object_id = voc
+                        break
             else:
                 return EzhAction(
                     action=action_id,
@@ -54,6 +60,11 @@ class EzhenCore():
             return EzhAction(action=action_id,
                              answer=action_settings['answer'])
 
+        return EzhAction(action_id=action_id,
+                         wait_next=False,
+                         ext=rec_object_id,
+                         answer=action_settings['answer'])
+
     def do_action(self, action: EzhAction):
-        answer = action.answer
-        return answer
+        action.answer = EzhDoActions.get_answer(action)
+        return action
