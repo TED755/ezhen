@@ -7,16 +7,20 @@ from core.ezh_except import EzhException
 class EzhenCore():
     def __init__(self):
         self.token = EZHEN_TOKEN
-        # self.chat_id = EZHEN_CHAT_ID
         try:
             with open('core/ezhen_vocabluary.json', 'r') as vocabluary:
                 self.vocabluary = json.load(vocabluary)
         except FileNotFoundError:
             raise EzhException(message='Не найден словарь Эженя')
 
-    def is_me(self, message: str) -> bool:
-        split_string_arr = message.split(' ')
+    def is_me(self, first_word: str) -> bool:
         for my_name in self.vocabluary['me']:
-            if my_name in split_string_arr[0].lower():
+            if my_name in first_word.lower():
                 return True
         return False
+
+    def def_action(self):
+        ...
+
+    def action(self):
+        ...

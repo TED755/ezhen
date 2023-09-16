@@ -11,9 +11,11 @@ def start_life():
     def get_text_messages(message):
         user_id = message.from_user.id
         chat_id = message.chat.id
+        message_words = message.text.split(' ')
         # print(user_id, chat_id)
-        request = message.text
-        if ezhen.is_me(request):
-            ezhen_bot.send_message(chat_id, f"вы написали {request}")
+
+        if not ezhen.is_me(message_words[0]):
+            return
+        ezhen_bot.send_message(chat_id, f"вы написали {message.text}")
 
     ezhen_bot.infinity_polling(none_stop=True, interval=1)
