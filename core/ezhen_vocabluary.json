@@ -6,8 +6,8 @@
         "эж",
         "ezhen"
     ],
-    "recommend": [],
-    "music": [],
-    "film": [],
+    "recommend": [""],
+    "music": [""],
+    "film": [""],
     "make_compliment": [""]
 }
