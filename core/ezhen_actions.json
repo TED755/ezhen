@@ -2,7 +2,8 @@
     "recommend": {
         "action_id": "recommend",
         "need_ext": true,
-        "answer": "Зацени {}"
+        "answer": "Зацени {}",
+        "bad_answer": "Что тебе порекомендовать?"
     },
     "me": {
         "action_id": "me",

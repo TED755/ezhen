@@ -6,6 +6,8 @@ from core.ezh_except import EzhException
 
 class EzhDoActions():
     def get_answer(action: EzhAction):
+        if action.wait_next:
+            return action.answer
         if action.act_id == 'recommend':
             return EzhDoActions.__recommend(action)
 
