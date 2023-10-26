@@ -2,7 +2,18 @@
     "recommend": {
         "action_id": "recommend",
         "need_ext": true,
-        "answer": "Зацени {}"
+        "answer": "Зацени {}",
+        "bad_answer": "Что тебе порекомендовать?"
+    },
+    "recommend@film":{
+        "action_id": "recommend@film",
+        "need_ext": false,
+        "answer": "Посмотри {}"
+    },
+    "recommend@music":{
+        "action_id": "recommend@music",
+        "need_ext": false,
+        "answer": "Послушай {}"
     },
     "me": {
         "action_id": "me",
