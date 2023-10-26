@@ -13,7 +13,7 @@ class EzhAction():
             self.ext,
             self.answer = args
 
-        self.act_id: str = kwargs.get('action_id')
+        self.act_id: str = kwargs.get('act_id')
         self.wait_next: bool = kwargs.get('wait_next')
         self.ext: str = kwargs.get('ext')
         self.answer: str = kwargs.get('answer')

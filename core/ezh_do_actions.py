@@ -1,15 +1,15 @@
 import json
 import random
-from core.ezh_action import EzhAction
+from core.actions.ezh_action import EzhAction
 from core.ezh_except import EzhException
 
 
 class EzhDoActions():
     def get_answer(action: EzhAction):
-        if action.wait_next:
-            return action.answer
-        if action.act_id == 'recommend':
-            return EzhDoActions.__recommend(action)
+        # if action.wait_next:
+        return action.answer
+        # if action.act_id == 'recommend':
+        #     return EzhDoActions.__recommend(action)
 
     def __recommend(action: EzhAction) -> str:
         try:

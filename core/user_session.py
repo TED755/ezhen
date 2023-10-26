@@ -11,10 +11,16 @@ class UserSession():
         self.user_id = user_id
         self.chat_id = chat_id
         self.lifetime = lifetime
-        self.expired = self.update()
+        self.update()
 
     def is_expired(self) -> bool:
         return datetime.utcnow() > self.expired
 
     def update(self):
-        return datetime.utcnow() + timedelta(seconds=self.lifetime)
+        self.expired = datetime.utcnow() + timedelta(seconds=self.lifetime)
+
+    def get_session_hash(self):
+        return hash(str(self.user_id + self.chat_id))
+
+    def __str__(self):
+        return f"{self.id}, {self.user_id}, {self.chat_id}"
